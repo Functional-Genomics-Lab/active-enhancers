@@ -8,6 +8,6 @@ process ALIGN_BWA {
 
     script:
     """
-    align-bwa.sh -i hg19_genome_index.fa  -f inputfile.noPolyA.noAdapt.fastq.gz"
+    align-bwa.sh -i ${index} -f ${reads}
     """
 }
