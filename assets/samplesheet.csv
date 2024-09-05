@@ -1,0 +1,7 @@
+sample,fastq_1,fastq_2
+Vehicle_rep1,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR653/SRR653426/SRR653426.fastq.gz,
+Vehicle_rep2,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR653/SRR653423/SRR653423.fastq.gz,
+E2_10m_rep1,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR653/SRR653425/SRR653425.fastq.gz,
+E2_10m_rep2,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR653/SRR653424/SRR653424.fastq.gz,
+E2_40m_rep1,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR653/SRR653422/SRR653422.fastq.gz,
+E2_40m_rep2,ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR653/SRR653421/SRR653421.fastq.gz,
