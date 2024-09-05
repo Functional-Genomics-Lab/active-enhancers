@@ -10,10 +10,12 @@ log.info paramsSummaryLog(workflow)
 ch_input = Channel.fromList(samplesheetToList(params.input, "assets/schema_input.json"))
 
 include { TRIM_ADAPTER_SEQUENCE } from "./modules/trim_adapter_sequence"
+include { TRIM_POLYA } from "./modules/trim_polya"
 
 workflow {
     // TODO FASTQC
-    TRIM_ADAPTER_SEQUENCE ( ch_input )
+    TRIM_ADAPTER_SEQUENCE ( ch_input ) |
+    TRIM_POLYA
     // # (2) Trimming polyA tail: After trimming the adapter sequence, the output file from
     // TODO bwa aln
     // TODO bwa samse
