@@ -9,9 +9,12 @@ log.info paramsSummaryLog(workflow)
 // Create a new channel of metadata from a sample sheet passed to the pipeline through the --input parameter
 ch_input = Channel.fromList(samplesheetToList(params.input, "assets/schema_input.json"))
 
+include { TRIM_ADAPTER_SEQUENCE } from "./modules/trim_adapter_sequence"
+
 workflow {
     // TODO FASTQC
-    // TODO CUTADAPT
+    TRIM_ADAPTER_SEQUENCE ( ch_input )
+    // # (2) Trimming polyA tail: After trimming the adapter sequence, the output file from
     // TODO bwa aln
     // TODO bwa samse
     // TODO samtools view
