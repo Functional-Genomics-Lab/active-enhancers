@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Nagari"
+  given-names: "Anusha"
+- family-names: "Murakami"
+  given-names: "Shino"
+- family-names: "Malladi"
+  given-names: "Venkat S."
+- family-names: "Kraus"
+  given-names: "W. Lee"
+  orcid: "https://orcid.org/0000-0003-3950-7557"
+title: "Computational Approaches for Mining GRO-seq Data to Identify and Characterize Active Enhancers"
+version: 28/12/1799
+doi: 10.1007/978-1-4939-4035-6_10
+date-released: 2016-09-24
+url: "https://github.com/Kraus-Lab/active-enhancers"
