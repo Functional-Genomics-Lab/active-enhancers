@@ -11,16 +11,14 @@ ch_input = Channel.fromList(samplesheetToList(params.input, "assets/schema_input
 
 include { TRIM_ADAPTER_SEQUENCE } from "./modules/trim_adapter_sequence"
 include { TRIM_POLYA } from "./modules/trim_polya"
+include { ALIGN_BWA } from "./modules/align_bwa"
 
 workflow {
     // TODO FASTQC
     TRIM_ADAPTER_SEQUENCE ( ch_input ) |
-    TRIM_POLYA
+    TRIM_POLYA |
     // # (2) Trimming polyA tail: After trimming the adapter sequence, the output file from
-    // TODO bwa aln
-    // TODO bwa samse
-    // TODO samtools view
-    // TODO samtools sort
+    ALIGN_BWA ()
     // 3.4. Identification of Active Enhancers from GRO-seq Data
     // $ sort-k1,1-k2,2n ip.txt ip_sorted.txt
     // $ bedtools intersect -a transcript_universe_from_groHMM.txt -b genic_regions_to_avoid.bed -v > intergenic_transcripts.txt
