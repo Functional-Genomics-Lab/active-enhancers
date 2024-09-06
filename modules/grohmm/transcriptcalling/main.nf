@@ -9,17 +9,17 @@ process GROHMM_TRANSCRIPTCALLING {
         'quay.io/biocontainers/mulled-v2-e9a6cb7894dd2753aff7d9446ea95c962cce8c46:0a46dae3241b1c4f02e46468f5d54eadcf64beca-0' }"
 
     input:
-    tuple val(meta), path(bams), path(bais)
+    path bams
     path gtf
     path tuning_file
 
     output:
-    tuple val(meta), path("*.transcripts.txt"), emit: transcripts
-    tuple val(meta), path("*.eval.txt")       , emit: eval
-    tuple val(meta), path("*.transcripts.bed"), emit: transcripts_bed
-    tuple val(meta), path("*.tdFinal.txt")    , emit: td
-    tuple val(meta), path("*.tdplot_mqc.jpg") , emit: td_plot
-    path  "versions.yml"     , emit: versions
+    path "*.transcripts.txt", emit: transcripts
+    // tuple val(meta), path("*.eval.txt")       , emit: eval
+    // tuple val(meta), path("*.transcripts.bed"), emit: transcripts_bed
+    // tuple val(meta), path("*.tdFinal.txt")    , emit: td
+    // tuple val(meta), path("*.tdplot_mqc.jpg") , emit: td_plot
+    // path  "versions.yml"     , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -32,7 +32,7 @@ process GROHMM_TRANSCRIPTCALLING {
     transcriptcalling_grohmm.R \\
         --bam_file ${bams} \\
         $tuning \\
-        --outprefix ${prefix} \\
+        --outprefix blah \\
         --gtf $gtf \\
         --outdir ./ \\
         --cores $task.cpus \\
