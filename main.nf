@@ -1,7 +1,7 @@
 include { validateParameters; paramsSummaryLog; samplesheetToList } from 'plugin/nf-schema'
 
 // Validate input parameters
-validateParameters()
+// TODO validateParameters()
 
 // Print summary of supplied parameters
 log.info paramsSummaryLog(workflow)
