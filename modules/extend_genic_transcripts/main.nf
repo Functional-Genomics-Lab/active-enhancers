@@ -4,7 +4,7 @@ process EXTEND_GENIC_TRANSCRIPTS {
     path chrom_len
 
     output:
-    path "intergenic_transcripts.txt"
+    path "*_10kb_flanking.bed"
 
     script:
     // -a transcript_universe_from_groHMM.txt  -b genic_regions_to_avoid.bed"
