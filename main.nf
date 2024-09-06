@@ -12,11 +12,12 @@ ch_input = Channel.fromList(samplesheetToList(params.input, "assets/schema_input
 include { TRIM_ADAPTER_SEQUENCE } from "./modules/trim_adapter_sequence"
 include { TRIM_POLYA } from "./modules/trim_polya"
 include { ALIGN_BWA } from "./modules/align_bwa"
-include { INTERGENIC_TRANSCRIPTS } from "./modules/intergenic_transcripts/"
+include { EXTEND_GENIC_TRANSCRIPTS } from "./modules/extend_genic_transcripts"
+include { INTERGENIC_TRANSCRIPTS } from "./modules/intergenic_transcripts"
+
 
 workflow {
-
-    // TODO EXTEND_GENIC_TRANSCRIPTS(params.gene_bed, params.chrom_len)
+    EXTEND_GENIC_TRANSCRIPTS(params.gene_bed, params.chrom_len)
     // TODO FASTQC
     TRIM_ADAPTER_SEQUENCE ( ch_input ) |
         TRIM_POLYA |
