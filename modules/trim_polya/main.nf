@@ -1,5 +1,5 @@
 process TRIM_POLYA {
-    conda "cutadapt'<2.0'"
+    conda "./envs/cutadapt.yml"
 
     input:
     path reads
