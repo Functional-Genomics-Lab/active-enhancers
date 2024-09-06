@@ -52,7 +52,7 @@ main(){
     input_fn=${input_file/.fastq.gz/}
 
     # Trimming adapter sequence
-    cutadapt -a adapter -z -e 0.10 --minimum-length=32 --output=$input_fn.noAdapt.fastq.gz $input_file 2>&1 >> $input_fn.trim-adapter.out
+    cutadapt -a $adapter -z -e 0.10 --minimum-length=32 --output=$input_fn.noAdapt.fastq.gz $input_file 2>&1 >> $input_fn.trim-adapter.out
 }
 
 main "$@"
