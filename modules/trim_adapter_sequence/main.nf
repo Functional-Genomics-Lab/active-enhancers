@@ -1,5 +1,5 @@
 process TRIM_ADAPTER_SEQUENCE {
-    conda "./envs/cutadapt.yml"
+    conda "${projectDir}/envs/cutadapt.yml"
 
     input:
     tuple val(meta), path(reads)
