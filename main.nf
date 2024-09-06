@@ -11,6 +11,7 @@ ch_input = Channel.fromList(samplesheetToList(params.input, "assets/schema_input
 
 include { TRIM_ADAPTER_SEQUENCE } from "./modules/trim_adapter_sequence"
 include { TRIM_POLYA } from "./modules/trim_polya"
+include { BWA_INDEX } from "./modules/bwa_index"
 include { ALIGN_BWA } from "./modules/align_bwa"
 include { EXTEND_GENIC_TRANSCRIPTS } from "./modules/extend_genic_transcripts"
 include { GROHMM_TRANSCRIPTCALLING } from "./modules/grohmm/transcriptcalling"
@@ -21,14 +22,16 @@ include { DEFINE_ENHANCER_TRANSCRIPTS } from "./modules/define_enhancer_transcri
 workflow {
     // TODO FASTQC
 
-    EXTEND_GENIC_TRANSCRIPTS(params.gene_bed, params.chrom_len)
-
     TRIM_ADAPTER_SEQUENCE ( ch_input ) |
         // # (2) Trimming polyA tail: After trimming the adapter sequence, the output file from
         TRIM_POLYA
-    ch_bams = ALIGN_BWA (TRIM_POLYA.out, params.fasta).collect()
+
+    BWA_INDEX (params.fasta)
+    ch_bams = ALIGN_BWA (TRIM_POLYA.out, BWA_INDEX.out).collect()
     // 3.4. Identification of Active Enhancers from GRO-seq Data
     GROHMM_TRANSCRIPTCALLING ( ch_bams, params.gtf, [] )
+
+    EXTEND_GENIC_TRANSCRIPTS(params.gene_bed, params.chrom_len)
     INTERGENIC_TRANSCRIPTS (GROHMM_TRANSCRIPTCALLING.out ,EXTEND_GENIC_TRANSCRIPTS.out) |
         DEFINE_ENHANCER_TRANSCRIPTS
 }
