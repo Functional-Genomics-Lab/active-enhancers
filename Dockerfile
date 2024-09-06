@@ -5,8 +5,7 @@
 
 FROM ubuntu:14.04
 
-MAINTAINER Venkat Malladi <Venkat.Malladi@utsouthwestern.edu>
-
+org.opencontainers.image.source = "https://github.com/Functional-Genomics-Lab/active-enhancers"
 
 # Install wget and unzip
 RUN  apt-get update \
@@ -55,6 +54,4 @@ RUN apt-get clean \
     && rm -rf sratoolkit.2.5.4-ubuntu64/ \
     && rm -rf bwa/
 
-# Add scripts
-ADD scripts /scripts
 WORKDIR /

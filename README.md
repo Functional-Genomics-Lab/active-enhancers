@@ -9,6 +9,12 @@ Identifying active enhancers and well known transcription factor binding sites f
 
 ## Docker Image
 Docker Image to analyze GRO-seq data.
+## Building
+
+``` sh
+docker buildx build . --load -t ghcr.io/functional-genomics-lab/active-enhancers:latest
+docker push ghcr.io/functional-genomics-lab/active-enhancers:latest
+```
 
 ### Requirements
 - [docker](https://docs.docker.com/installation/)
