@@ -1,5 +1,5 @@
 process GROHMM_TRANSCRIPTCALLING {
-    tag "$meta.id"
+    // tag "$meta.id"
     label 'process_high'
     label 'process_long'
 
@@ -26,7 +26,7 @@ process GROHMM_TRANSCRIPTCALLING {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    // def prefix = task.ext.prefix ?: "${meta.id}"
     def tuning = tuning_file ? "--tuning_file ${tuning_file}" : ""
     """
     transcriptcalling_grohmm.R \\
