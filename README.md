@@ -1,7 +1,11 @@
 # active-enhancers
 Identifying active enhancers and well known transcription factor binding sites from GRO-seq data.
 
-[![Build Status](https://travis-ci.org/Kraus-Lab/active-enhancers.svg?branch=master)](https://travis-ci.org/Kraus-Lab/active-enhancers)
+## Running
+
+``` sh
+nextflow run Functional-Genomics-Lab/active-enhancers -profile utd_ganymede
+```
 
 ## Contributors
 - [Anusha Nagari](https://github.com/anaga2)
