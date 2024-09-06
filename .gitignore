@@ -21,3 +21,6 @@ nytprof.out
 .nextflow*
 work/
 results/
+# pixi environments
+.pixi
+*.egg-info
