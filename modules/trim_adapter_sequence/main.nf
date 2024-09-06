@@ -1,5 +1,5 @@
 process TRIM_ADAPTER_SEQUENCE {
-    conda "cutadapt=1.8.1"
+    conda "cutadapt<2.0.0"
 
     input:
     tuple val(meta), path(reads)

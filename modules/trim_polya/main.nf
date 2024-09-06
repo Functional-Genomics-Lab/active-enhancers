@@ -1,5 +1,5 @@
 process TRIM_POLYA {
-    conda "cutadapt=1.8.1"
+    conda "cutadapt<2.0.0"
 
     input:
     path reads
