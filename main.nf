@@ -26,7 +26,7 @@ workflow {
     TRIM_ADAPTER_SEQUENCE ( ch_input ) |
         // # (2) Trimming polyA tail: After trimming the adapter sequence, the output file from
         TRIM_POLYA |
-        ALIGN_BWA (params.index) |
+        ALIGN_BWA (params.fasta) |
         // 3.4. Identification of Active Enhancers from GRO-seq Data
         GROHMM_TRANSCRIPTCALLING ( params.gtf, [] ) |
         INTERGENIC_TRANSCRIPTS (EXTEND_GENIC_TRANSCRIPTS.out) |

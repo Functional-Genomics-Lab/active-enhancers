@@ -1,13 +1,13 @@
 process ALIGN_BWA {
     input:
     path reads
-    path index
+    path fasta
 
     output:
     path "*.sorted.bam"
 
     script:
     """
-    align-bwa.sh -i ${index} -f ${reads}
+    align-bwa.sh -i $fasta -f $reads
     """
 }
