@@ -47,8 +47,6 @@ main(){
         usage
     fi
 
-    # Identifying intergenic transcripts
-    bedtools intersect -a $transcripts -b $genic_regions -v > intergenic_transcripts.txt
 }
 
 main "$@"
