@@ -14,6 +14,7 @@ include { TRIM_POLYA } from "./modules/trim_polya"
 include { ALIGN_BWA } from "./modules/align_bwa"
 include { EXTEND_GENIC_TRANSCRIPTS } from "./modules/extend_genic_transcripts"
 include { INTERGENIC_TRANSCRIPTS } from "./modules/intergenic_transcripts"
+include { DEFINE_ENHANCER_TRANSCRIPTS } from "./modules/define_enhancer_transcripts"
 
 
 workflow {
@@ -26,6 +27,5 @@ workflow {
     // 3.4. Identification of Active Enhancers from GRO-seq Data
     // TODO GROHMM ( ) |
     INTERGENIC_TRANSCRIPTS (EXTEND_GENIC_TRANSCRIPTS.out) |
-    // TODO DEFINE_ENHANCER_TRANSCRIPTS (params.short_paired_transcripts, short_paired_transcripts_1kb_window_overlap)
-    // $ ./Define_enhancer_transcripts.pl -i intergenic_transcripts.txt -a short_paired_transcripts.txt -b short_paired_transcripts_overlap.txt -c short_paired_transcripts_1kb_window_overlap.txt
+    DEFINE_ENHANCER_TRANSCRIPTS ( )
 }
