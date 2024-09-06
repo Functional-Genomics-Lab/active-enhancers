@@ -1,4 +1,6 @@
 process DEFINE_ENHANCER_TRANSCRIPTS  {
+    container "perl:5.18.2"
+
     input:
     path intergenic_transcripts
 
