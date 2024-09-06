@@ -1,6 +1,6 @@
 process TRIM_ADAPTER_SEQUENCE {
     input:
-    path reads
+    tuple val(meta), path(reads)
 
     output:
     path "*.noAdapt.fastq.gz"
