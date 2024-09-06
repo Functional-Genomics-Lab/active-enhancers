@@ -9,9 +9,9 @@ dependencies:
   - pip
   - r-base
   - fastqc=0.10.1 # +dfsg-2
-  - cutadapt=1.2.1
+  - cutadapt=1.8.1 # NOTE was 1.2.1
   - bwa=0.7.12
-  - samtools=0.1.19-1
-  - bedtools=2.17.0-1
+  - samtools=0.1.19
+  - bedtools=2.17.0
   # - grohmm
-  - sratoolkit=2.5.4
+  - sra-tools=2.6.2 # NOTE 2.5.4
