@@ -14,13 +14,16 @@ include { TRIM_POLYA } from "./modules/trim_polya"
 include { ALIGN_BWA } from "./modules/align_bwa"
 
 workflow {
+
+    // TODO EXTEND_GENIC_TRANSCRIPTS(params.gene_bed, params.chrom_len)
     // TODO FASTQC
     TRIM_ADAPTER_SEQUENCE ( ch_input ) |
-    TRIM_POLYA |
+        TRIM_POLYA |
     // # (2) Trimming polyA tail: After trimming the adapter sequence, the output file from
-    ALIGN_BWA ()
+        ALIGN_BWA (params.index) |
     // 3.4. Identification of Active Enhancers from GRO-seq Data
-    // $ sort-k1,1-k2,2n ip.txt ip_sorted.txt
-    // $ bedtools intersect -a transcript_universe_from_groHMM.txt -b genic_regions_to_avoid.bed -v > intergenic_transcripts.txt
+    // TODO GROHMM ( ) |
+    // TODO INTERGENIC_TRANSCRIPTS (EXTEND_GENIC_TRANSCRIPTS.out) |
+    // TODO DEFINE_ENHANCER_TRANSCRIPTS (params.short_paired_transcripts, short_paired_transcripts_1kb_window_overlap)
     // $ ./Define_enhancer_transcripts.pl -i intergenic_transcripts.txt -a short_paired_transcripts.txt -b short_paired_transcripts_overlap.txt -c short_paired_transcripts_1kb_window_overlap.txt
 }
