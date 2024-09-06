@@ -12,6 +12,7 @@ ch_input = Channel.fromList(samplesheetToList(params.input, "assets/schema_input
 include { TRIM_ADAPTER_SEQUENCE } from "./modules/trim_adapter_sequence"
 include { TRIM_POLYA } from "./modules/trim_polya"
 include { ALIGN_BWA } from "./modules/align_bwa"
+include { INTERGENIC_TRANSCRIPTS } from "./modules/intergenic_transcripts/"
 
 workflow {
 
@@ -23,7 +24,7 @@ workflow {
         ALIGN_BWA (params.index) |
     // 3.4. Identification of Active Enhancers from GRO-seq Data
     // TODO GROHMM ( ) |
-    // TODO INTERGENIC_TRANSCRIPTS (EXTEND_GENIC_TRANSCRIPTS.out) |
+    INTERGENIC_TRANSCRIPTS (EXTEND_GENIC_TRANSCRIPTS.out) |
     // TODO DEFINE_ENHANCER_TRANSCRIPTS (params.short_paired_transcripts, short_paired_transcripts_1kb_window_overlap)
     // $ ./Define_enhancer_transcripts.pl -i intergenic_transcripts.txt -a short_paired_transcripts.txt -b short_paired_transcripts_overlap.txt -c short_paired_transcripts_1kb_window_overlap.txt
 }
