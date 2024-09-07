@@ -7,18 +7,23 @@ Identifying active enhancers and well known transcription factor binding sites f
 nextflow run Functional-Genomics-Lab/active-enhancers -profile utd_ganymede
 ```
 
+## Results
+
+[Results of the reproduction can be viewed on Hugging Face](https://huggingface.co/datasets/funlab/active-enhancers)
+
+<iframe
+  src="https://huggingface.co/datasets/funlab/active-enhancers/embed/viewer/default/train"
+  frameborder="0"
+  width="100%"
+  height="560px"
+></iframe>
+
 ## Contributors
 - [Anusha Nagari](https://github.com/anaga2)
 - [Venkat Malladi](https://github.com/vsmalladi)
 
 ## Docker Image
 Docker Image to analyze GRO-seq data.
-## Building
-
-``` sh
-docker buildx build . --load -t ghcr.io/functional-genomics-lab/active-enhancers:latest
-docker push ghcr.io/functional-genomics-lab/active-enhancers:latest
-```
 
 ### Requirements
 - [docker](https://docs.docker.com/installation/)
