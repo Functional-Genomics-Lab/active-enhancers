@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-base=3.0.2
+  - r-optparse # =1.7.1
+  - r-argparse # =2.1.3
+  - bioconductor-genomicfeatures # =1.46.1
+  - bioconductor-grohmm=1.16.0 # =1.28.0

@@ -7,7 +7,7 @@ dependencies:
   - git
   - python=2.7
   - pip
-  - r-base
+  - r-base # NOTE Technically was =3.0.2
   - fastqc=0.10.1 # +dfsg-2
   # └─ cutadapt 1.8.1 would require
   # └─ python 3.4.*
