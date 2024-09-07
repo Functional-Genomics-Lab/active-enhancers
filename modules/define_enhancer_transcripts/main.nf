@@ -1,4 +1,4 @@
-process DEFINE_ENHANCER_TRANSCRIPTS  {
+process DEFINE_ENHANCER_TRANSCRIPTS {
     publishDir 'results/enhancers'
     container "perl:5.18.2"
 

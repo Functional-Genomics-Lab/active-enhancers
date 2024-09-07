@@ -9,6 +9,7 @@ log.info paramsSummaryLog(workflow)
 // Create a new channel of metadata from a sample sheet passed to the pipeline through the --input parameter
 ch_input = Channel.fromList(samplesheetToList(params.input, "assets/schema_input.json"))
 
+include { QUALITY_METRIC_FASTQC } from "./modules/quality_metric_fastqc"
 include { TRIM_ADAPTER_SEQUENCE } from "./modules/trim_adapter_sequence"
 include { TRIM_POLYA } from "./modules/trim_polya"
 include { BWA_INDEX } from "./modules/bwa_index"
@@ -20,7 +21,7 @@ include { DEFINE_ENHANCER_TRANSCRIPTS } from "./modules/define_enhancer_transcri
 
 
 workflow {
-    // TODO FASTQC
+    QUALITY_METRIC_FASTQC ( ch_input )
 
     TRIM_ADAPTER_SEQUENCE ( ch_input ) |
         // # (2) Trimming polyA tail: After trimming the adapter sequence, the output file from
