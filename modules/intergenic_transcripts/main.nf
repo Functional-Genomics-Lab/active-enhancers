@@ -9,10 +9,10 @@ process INTERGENIC_TRANSCRIPTS {
 
     script:
     """
-    sort-k1,1-k2,2n ${transcripts}.txt ip_sorted.txt
+    sort -k 1,1 -k2,2n $transcripts ip_sorted.txt
 
     bedtools intersect \\
-        -a $transcripts \\
+        -a ip_sorted.txt \\
         -b $genic_regions \\
         -v \\
         > intergenic_transcripts.txt
