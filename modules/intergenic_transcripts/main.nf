@@ -9,6 +9,10 @@ process INTERGENIC_TRANSCRIPTS {
 
     script:
     """
-    bedtools intersect -a $transcripts -b $genic_regions -v > intergenic_transcripts.txt
+    bedtools intersect \\
+        -a $transcripts \\
+        -b $genic_regions \\
+        -v \\
+        > intergenic_transcripts.txt
     """
 }

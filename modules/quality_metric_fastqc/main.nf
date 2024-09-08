@@ -5,7 +5,7 @@ process QUALITY_METRIC_FASTQC {
     tuple val(meta), path(fastq)
 
     output:
-    path "*.html", emit: html
+    // path "*.html", emit: html
     path "*.zip", emit: zip
 
     script:

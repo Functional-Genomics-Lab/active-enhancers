@@ -23,7 +23,7 @@ include { DEFINE_ENHANCER_TRANSCRIPTS } from "./modules/define_enhancer_transcri
 workflow {
     QUALITY_METRIC_FASTQC ( ch_input )
 
-    TRIM_ADAPTER_SEQUENCE ( ch_input ) |
+    TRIM_ADAPTER_SEQUENCE ( ch_input, params.adapter_sequence ) |
         // # (2) Trimming polyA tail: After trimming the adapter sequence, the output file from
         TRIM_POLYA
 
