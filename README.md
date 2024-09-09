@@ -16,12 +16,12 @@ nextflow run Functional-Genomics-Lab/active-enhancers -profile utd_ganymede
 
 [Results of the reproduction can be viewed on Hugging Face](https://huggingface.co/datasets/funlab/active-enhancers)
 
-<iframe
-  src="https://huggingface.co/datasets/funlab/active-enhancers/embed/viewer/default/train"
-  frameborder="0"
-  width="100%"
-  height="560px"
-></iframe>
+<!-- <iframe -->
+<!--   src="https://huggingface.co/datasets/funlab/active-enhancers/embed/viewer/default/train" -->
+<!--   frameborder="0" -->
+<!--   width="100%" -->
+<!--   height="560px" -->
+<!-- ></iframe> -->
 
 ## Original Authors
 
